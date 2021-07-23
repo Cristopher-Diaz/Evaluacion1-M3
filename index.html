@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- 
+|
+Evaluación 1 del módulo 3 por Cristopher Díaz y Rodrigo González
+|
+| 
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación 1 - M3</title>
+
+    <!-- Bootstrap CSS ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a href="/" class="navbar-brand" data-bs-toggle="tooltip" data-bs-placement="left" title="Volver a inicio">
+                <i class="bi bi-house-door"></i>
+                <span>Bootstrap</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active" aria-current="page" data-bs-toggle="tooltip"
+                            data-bs-placement="bottom">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="bottom">Enlace 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="bottom">Enlace 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="bottom">Enlace 3</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="bottom">Enlace 4</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar -->
+
+    <!-- Form -->
+    <main class="bg-dark text-white py-5">
+        <div class="container">
+            <h2 class="text-center display-4 mb-5">Evaluación 1 - M3</h2>
+
+            <div class="row">
+                <div class="col-12 col-lg-4 pe-5">
+                    <h5>Nueva venta</h5>
+                    <hr>
+                    <form id="formu">
+                        <div class="mb-3">
+                            <label for="rut" class="form-label">Rut- Cliente</label>
+                            <input type="text" class="form-control" id="rut" required>
+
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre Cliente o Razón Social</label>
+                            <input type="text" class="form-control" id="nombre" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="fecha" class="form-label">Fecha (DD/MM/YYYY)</label>
+                            <input type="date" class="form-control" id="fecha" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="regiones" class="form-label">Región de Venta</label>
+                            <select class="form-control form-select" id="regiones">
+                                
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="precio" class="form-label">Precio Total</label>
+                            <input type="number" class="form-control" id="precio">
+                        </div>
+
+                        <button type="button" id="agregar" class="btn btn-outline-light mb-5">Agregar</button>
+                    </form>
+
+                </div>
+                <div class="col-12 col-lg-8 align-items-center">
+                    <h5>Detalles de Venta</h5>
+                    <hr>
+
+                    <table class="table text-white">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nombre Cliente</th>
+                                <th scope="col">RUT</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Región</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaBody">
+                        </tbody>
+                    </table>
+
+                    <div class="row">
+                        <div class="card text-white bg-primary m-5" style="max-width: 18rem;">
+                            <div class="card-header">Cantidad de Ventas</div>
+                            <div class="card-body">
+
+                                <p class="card-text display-4 text-center" id="numeroVentas"></p>
+                            </div>
+                        </div>
+                        <div class="card text-white bg-success m-5" style="max-width: 18rem;">
+                            <div class="card-header">Total ventas acumulado $</div>
+                            <div class="card-body">
+                                <p class="card-text display-4 text-center" id="totalVentas"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Form -->
+
+    <div class="modal" id="modal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="modalTitle">¡Atención! <i class="bi bi-exclamation-circle-fill text-danger"></i></h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center bg-light" >
+                <p id="modalBody" class="font-weight-bold"></p>
+            </div>
+          </div>
+        </div>
+    </div>
+      
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
